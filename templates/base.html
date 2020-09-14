@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block header %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+    {% endblock %}
+
+    {% block title %}
+    <title>Epitech</title>
+    {% endblock %}
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="security()">Profile</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/card">Card</a>
+                </li>
+           
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <main role="main" class="container">
+
+
+        {% block body %}
+
+        <h1>LE BODY</h1>
+        {% endblock %}
+
+
+
+    </main>
+
+    
+
+    {% block footer %}
+
+    <!-- IMPORT DE JQUERY POPPER BOOTSTRAP ET JAVASCRIPT MAISON -->
+
+    <script src="{{ url_for('static', filename='./js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='./js/script.js') }}"></script>
+
+  
+    <script>
+    function security() {
+      var password = prompt("PASSWORD");
+        if (password =="root") {
+            location.replace("profile/root")
+        }
+    }
+    </script>
+
+    {% endblock %}
+
+</body>
+
+</html>

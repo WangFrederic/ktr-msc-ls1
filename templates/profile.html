@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+<h2>CREATE YOUR PROFILE</h2>
+
+<form action="/profile/root" method="POST">
+  <label for="Name">Name:</label><br>
+  <input type="text" id="Name" name="Name" required><br>
+
+  <label for="Company">Company</label><br>
+  <input type="text" id="Company" name="Company"><br>
+
+  <label for="Email">Email:</label><br>
+  <input type="email" id="Email" name="Email"><br>
+
+  <label for="Phone">Phone:</label><br>
+  <input type="tel" id="Phone" name="Phone" pattern="[0-9]{10}"><br><br>
+
+  <input type="submit" value="Submit">
+</form> 
+
+{% endblock %}
